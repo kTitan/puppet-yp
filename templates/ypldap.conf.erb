@@ -1,0 +1,44 @@
+# !!! Managed by Puppet !!!
+
+domain		"<%= @domain %>"
+interval	<%= @interval %>
+<% @maps.each do |m| -%>
+provide map	"<%= m %>"
+<% end -%>
+
+directory "<%= @server %>" {
+<% if @bind_dn -%>
+	binddn "<%= @bind_dn %>"
+<%   if @bind_pw -%>
+	bindcred "<%= @bind_pw %>"
+<%   end -%>
+<% end -%>
+	basedn "<%= @base_dn %>"
+<% if @group_dn -%>
+	groupdn "<%= @group_dn %>"
+<% end -%>
+
+	passwd filter "<%= @user_filter %>"
+
+<% %w(name passwd uid gid gecos home shell change expire class).each do |a| -%>
+<%   if @fixed_attributes.include?(a) -%>
+	fixed attribute <%= a %> "<%= @fixed_attributes[a] %>"
+<%   elsif @list_attributes.include?(a) -%>
+	list <%= a %> maps to "<%= @list_attributes[a] %>"
+<%   elsif @ldap_attributes.include?(a) -%>
+	attribute <%= a %> maps to "<%= @ldap_attributes[a] %>"
+<%   end -%>
+<% end -%>
+
+	group filter "<%= @group_filter %>"
+
+<% %w(groupname grouppasswd groupgid groupmembers).each do |a| -%>
+<%   if @fixed_attributes.include?(a) -%>
+	fixed attribute <%= a %> "<%= @fixed_attributes[a] %>"
+<%   elsif @list_attributes.include?(a) -%>
+	list <%= a %> maps to "<%= @list_attributes[a] %>"
+<%   elsif @ldap_attributes.include?(a) -%>
+	attribute <%= a %> maps to "<%= @ldap_attributes[a] %>"
+<%   end -%>
+<% end -%>
+}

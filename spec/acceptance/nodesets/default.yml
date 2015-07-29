@@ -1,0 +1,20 @@
+HOSTS:
+  centos-70-x64:
+    roles:
+      - server
+    platform: el-7-x86_64
+    box: puppetlabs/centos-7.0-64-nocm
+    box_url: https://vagrantcloud.com/puppetlabs/boxes/centos-7.0-64-nocm
+    hypervisor: vagrant
+    ip: 10.255.33.1
+  openbsd-57-x64:
+    roles:
+      - client
+      - default
+    platform: openbsd-5.7-amd64
+    box: bodgit/openbsd-5.7
+    #box_url: https://atlas.hashicorp.com/tmatilai/boxes/openbsd-5.6
+    hypervisor: vagrant
+    ip: 10.255.33.2
+CONFIG:
+  type: foss
