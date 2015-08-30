@@ -57,10 +57,12 @@ describe 'yp::serv' do
   end
 
   describe service('ypserv') do
+    it { should be_enabled }
     it { should be_running }
   end
 
   describe service('yppasswdd') do
+    it { should be_enabled }
     it { should be_running }
   end
 
