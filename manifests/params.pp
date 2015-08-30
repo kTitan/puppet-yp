@@ -92,7 +92,7 @@ class yp::params {
         'locale.byname',
         'netmasks.byaddr',
       ]
-      $serv_map_extension          = ''
+      $serv_map_extension          = '' # lint:ignore:empty_string_assignment
       $serv_package_name           = 'ypserv'
       $serv_yppasswdd_service_name = 'yppasswdd'
       $serv_ypserv_service_name    = 'ypserv'

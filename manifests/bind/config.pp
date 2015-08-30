@@ -60,31 +60,31 @@ class yp::bind::config {
 
       if versioncmp($::augeasversion, '1.4.0') < 0 {
         file { '/usr/local/share/augeas/lenses/passwd.aug':
-          ensure => file,
-          owner  => 0,
-          group  => 0,
-          mode   => '0644',
-          source => 'puppet:///modules/yp/passwd.aug',
+          ensure  => file,
+          owner   => 0,
+          group   => 0,
+          mode    => '0644',
+          content => file('yp/passwd.aug'),
         }
       }
 
       if versioncmp($::augeasversion, '1.5.0') < 0 {
         file { '/usr/local/share/augeas/lenses/masterpasswd.aug':
-          ensure => file,
-          owner  => 0,
-          group  => 0,
-          mode   => '0644',
-          source => 'puppet:///modules/yp/masterpasswd.aug',
-          before => Augeas['/etc/master.passwd/nisdefault'],
+          ensure  => file,
+          owner   => 0,
+          group   => 0,
+          mode    => '0644',
+          content => file('yp/masterpasswd.aug'),
+          before  => Augeas['/etc/master.passwd/nisdefault'],
         }
 
         file { '/usr/local/share/augeas/lenses/group.aug':
-          ensure => file,
-          owner  => 0,
-          group  => 0,
-          mode   => '0644',
-          source => 'puppet:///modules/yp/group.aug',
-          before => Augeas['/etc/group/nisdefault'],
+          ensure  => file,
+          owner   => 0,
+          group   => 0,
+          mode    => '0644',
+          content => file('yp/group.aug'),
+          before  => Augeas['/etc/group/nisdefault'],
         }
       }
     }
