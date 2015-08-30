@@ -4,7 +4,7 @@ require 'rake/clean'
 require 'metadata-json-lint/rake_task'
 
 CLEAN.include('spec/fixtures/manifests', 'spec/fixtures/modules')
-CLOBBER.include('.tmp', '.librarian', '.vagrant', 'Puppetfile.lock', 'log', 'junit')
+CLOBBER.include('.tmp', '.librarian', '.vagrant', 'Puppetfile.lock', 'log', 'junit', 'coverage')
 
 task :spec => []; Rake::Task[:spec].clear
 task :spec do
@@ -19,15 +19,15 @@ task :spec_prep => :librarian_spec_prep
 
 task :test => [
   'metadata_lint',
-  'lint',
   'syntax',
   'spec',
+  'lint',
 ]
 
 PuppetLint.configuration.log_format = '%{path}:%{linenumber}:%{check}:%{KIND}:%{message}'
-PuppetLint.configuration.ignore_paths = ['spec/**/*.pp']
+PuppetLint.configuration.ignore_paths = ['pkg/**/*.pp', 'spec/**/*.pp', 'vendor/**/*.pp']
 PuppetLint.configuration.fail_on_warnings = true
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 
-PuppetSyntax.exclude_paths = ['spec/**/*.pp']
+PuppetSyntax.exclude_paths = ['pkg/**/*', 'spec/**/*', 'vendor/**/*']

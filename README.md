@@ -2,8 +2,10 @@
 
 Tested with Travis CI
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/yp.svg)](https://forge.puppetlabs.com/bodgit/yp)
 [![Build Status](https://travis-ci.org/bodgit/puppet-yp.svg?branch=master)](https://travis-ci.org/bodgit/puppet-yp)
+[![Coverage Status](https://coveralls.io/repos/bodgit/puppet-yp/badge.svg?branch=master&service=github)](https://coveralls.io/github/bodgit/puppet-yp?branch=master)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/yp.svg)](https://forge.puppetlabs.com/bodgit/yp)
+[![Dependency Status](https://gemnasium.com/bodgit/puppet-yp.svg)](https://gemnasium.com/bodgit/puppet-yp)
 
 #### Table of Contents
 
