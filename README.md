@@ -429,7 +429,7 @@ Class['::portmap'] ~> Class['::yp::ldap'] ~> Class['::yp::bind'] <~ Class['::yp'
 
 #### Private Classes
 
-* `yp::config`: Handles base LDAP library configuration.
+* `yp::config`: Handles YP/NIS configuration.
 * `yp::params`: Different configuration data for different systems.
 * `yp::bind::config`: Handles `ypbind` configuration.
 * `yp::bind::install`: Handles `ypbind` installation.
