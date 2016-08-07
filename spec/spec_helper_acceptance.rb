@@ -17,9 +17,10 @@ RSpec.configure do |c|
   c.before :suite do
     hosts.each do |host|
       copy_module_to(host, :source => proj_root, :module_name => 'yp')
-      on host, puppet('module', 'install', 'bodgit-portmap'), { :acceptable_exit_codes => [0,1] }
-      on host, puppet('module', 'install', 'puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
-      on host, puppet('module', 'install', 'trlinkin-nsswitch'), { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'bodgit-portmap'),                   { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'puppetlabs-stdlib'),                { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'bodgit-bodgitlib'),                 { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'trlinkin-nsswitch'),                { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'herculesteam-augeasproviders_pam'), { :acceptable_exit_codes => [0,1] }
     end
   end

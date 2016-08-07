@@ -6,7 +6,7 @@ group :development, :test do
   gem 'rspec-puppet', '>= 2.2.0',                         :require => false
   gem 'puppetlabs_spec_helper',                           :require => false
   gem 'metadata-json-lint',                               :require => false
-  gem 'puppet-lint', ['>= 1.0.1', '< 1.1.0'],             :require => false
+  gem 'puppet-lint', '>= 1.1.0',                          :require => false
   gem 'puppet-lint-unquoted_string-check',                :require => false
   gem 'puppet-lint-empty_string-check',                   :require => false
   gem 'puppet-lint-spaceship_operator_without_tag-check', :require => false
@@ -23,7 +23,8 @@ group :development, :test do
   gem 'librarian-puppet',                                 :require => false
   gem 'beaker', '>= 2.18.2',                              :require => false
   gem 'beaker-rspec',                                     :require => false
-  gem 'rspec-puppet-facts', ['>= 0.11.0', '< 1.0.0'],     :require => false
+  gem 'rspec-puppet-facts', '>= 1.6.1',                   :require => false
+  gem 'facterdb', '>= 0.3.5',                             :require => false
   gem 'coveralls',                                        :require => false
   gem 'specinfra', '>= 2.42.1',                           :require => false
 end

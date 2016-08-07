@@ -42,7 +42,30 @@ class yp::ldap (
     fail('yp::serv and yp::ldap are mutually exclusive.')
   }
 
+  validate_string($base_dn)
+  validate_ldap_dn($base_dn)
+  validate_string($domain)
+  validate_string($server)
+  if $bind_dn {
+    validate_string($bind_dn)
+    validate_ldap_dn($bind_dn)
+  }
+  validate_string($bind_pw)
+  validate_absolute_path($conf_file)
+  validate_hash($fixed_attributes)
+  if $group_dn {
+    validate_string($group_dn)
+    validate_ldap_dn($group_dn)
+  }
+  validate_string($group_filter)
+  validate_ldap_filter($group_filter)
+  validate_integer($interval, '', 1)
+  validate_hash($ldap_attributes)
+  validate_hash($list_attributes)
   validate_array($maps)
+  validate_string($service_name)
+  validate_string($user_filter)
+  validate_ldap_filter($user_filter)
 
   include ::yp::ldap::config
   include ::yp::ldap::service
