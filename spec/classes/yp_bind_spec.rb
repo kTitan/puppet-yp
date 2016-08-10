@@ -21,7 +21,9 @@ describe 'yp::bind' do
   on_supported_os.each do |os, facts|
     context "on #{os}", :compile do
       let(:facts) do
-        facts
+        facts.merge({
+          :augeasversion => '1.3.0',
+        })
       end
 
       it { should contain_anchor('yp::bind::begin') }

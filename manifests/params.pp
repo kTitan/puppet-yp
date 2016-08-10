@@ -10,6 +10,7 @@ class yp::params {
   case $::osfamily {
     'OpenBSD': {
       $bind_manage_package         = false
+      $bind_package_name           = undef
       $bind_service_name           = 'ypbind'
       $ldap_conf_file              = '/etc/ypldap.conf'
       $ldap_maps                   = [
@@ -22,6 +23,7 @@ class yp::params {
       $ldap_service_name           = 'ypldap'
       $serv_has_ypxfrd             = false
       $serv_manage_package         = false
+      $serv_package_name           = undef
       $serv_maps                   = [
         'passwd.byname',
         'passwd.byuid',
@@ -50,11 +52,15 @@ class yp::params {
       $serv_map_extension          = '.db'
       $serv_yppasswdd_service_name = 'yppasswdd'
       $serv_ypserv_service_name    = 'ypserv'
+      $serv_ypxfrd_service_name    = undef
     }
     'RedHat': {
       $bind_manage_package         = true
       $bind_package_name           = 'ypbind'
       $bind_service_name           = 'ypbind'
+      $ldap_conf_file              = undef
+      $ldap_maps                   = undef
+      $ldap_service_name           = undef
       $serv_has_ypxfrd             = true
       $serv_manage_package         = true
       $serv_maps                   = [

@@ -459,7 +459,7 @@ This module has been built on and tested against Puppet 3.0 and higher.
 
 The module has been tested on:
 
-* OpenBSD 5.7
+* OpenBSD 5.7/5.8/5.9
 * RedHat/CentOS Enterprise Linux 7
 
 Testing on other platforms has been light and cannot be guaranteed.
