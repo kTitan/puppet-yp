@@ -87,6 +87,10 @@ The YP/NIS domain.
 
 An array of YP servers to use, if left empty will default to broadcasting.
 
+##### `manage_nsswitch`
+
+Whether to manage a nsswitch.conf or not on supported systems.
+
 ##### `manage_package`
 
 Whether to manage a package or not. Some operating systems have `ypbind` as

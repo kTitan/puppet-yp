@@ -55,6 +55,7 @@ class yp::params {
       $serv_ypxfrd_service_name    = undef
     }
     'RedHat': {
+      $bind_manage_nsswitch        = true
       $bind_manage_package         = true
       $bind_package_name           = 'ypbind'
       $bind_service_name           = 'ypbind'

@@ -1,14 +1,16 @@
 #
 class yp::bind (
   $domain,
-  $servers        = [],
-  $manage_package = $::yp::params::bind_manage_package,
-  $package_name   = $::yp::params::bind_package_name,
-  $service_name   = $::yp::params::bind_service_name,
+  $servers         = [],
+  $manage_nsswitch = $::yp::params::bind_manage_nsswitch,
+  $manage_package  = $::yp::params::bind_manage_package,
+  $package_name    = $::yp::params::bind_package_name,
+  $service_name    = $::yp::params::bind_service_name,
 ) inherits ::yp::params {
 
   validate_string($domain)
   validate_array($servers)
+  validate_bool($manage_nsswitch)
   validate_bool($manage_package)
   if $manage_package {
     validate_string($package_name)

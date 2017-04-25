@@ -97,13 +97,15 @@ class yp::bind::config {
         content => template('yp/yp.conf.erb'),
       }
 
-      class { '::nsswitch':
-        passwd    => ['files', 'nis', 'sss'],
-        shadow    => ['files', 'nis', 'sss'],
-        group     => ['files', 'nis', 'sss'],
-        hosts     => ['files', 'nis', 'dns'],
-        netgroup  => ['files', 'nis', 'sss'],
-        automount => ['files', 'nis'],
+      if $::yp::bind::manage_nsswitch {
+        class { '::nsswitch':
+          passwd    => ['files', 'nis', 'sss'],
+          shadow    => ['files', 'nis', 'sss'],
+          group     => ['files', 'nis', 'sss'],
+          hosts     => ['files', 'nis', 'dns'],
+          netgroup  => ['files', 'nis', 'sss'],
+          automount => ['files', 'nis'],
+        }
       }
 
       pam { 'nis':
